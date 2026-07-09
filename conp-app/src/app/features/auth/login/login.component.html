@@ -1,0 +1,50 @@
+<div class="login-container">
+  <div class="login-shell">
+    <div class="login-brand">
+      <span class="login-brand-mark">GIR6091</span>
+      <span class="login-brand-sep">·</span>
+      <span class="login-brand-name">TASKS</span>
+    </div>
+
+    <mat-card class="login-card">
+      <h1>Iniciar sesión</h1>
+      <p class="subtitle">Accede con tu cuenta para gestionar tus tareas</p>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Correo</mat-label>
+          <input matInput type="email" formControlName="email" autocomplete="username" />
+          @if (isInvalid('email')) {
+            <mat-error>Ingresa un correo válido</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            autocomplete="current-password"
+          />
+          @if (isInvalid('password')) {
+            <mat-error>La contraseña debe tener al menos 6 caracteres</mat-error>
+          }
+        </mat-form-field>
+
+        <button
+          mat-flat-button
+          type="submit"
+          class="full-width btn-create"
+          [disabled]="loading()"
+        >
+          @if (loading()) {
+            <mat-spinner diameter="20"></mat-spinner>
+          } @else {
+            Acceder
+          }
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

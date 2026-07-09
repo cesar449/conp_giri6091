@@ -1,0 +1,11 @@
+.full-width {
+  width: 100%;
+}
+
+.btn-cancel {
+  color: var(--text-muted) !important;
+}
+
+h2[mat-dialog-title] {
+  font-family: var(--font-display);
+}

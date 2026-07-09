@@ -1,0 +1,53 @@
+@if (authService.isLoggedIn()) {
+  <mat-toolbar class="app-toolbar">
+    <span class="brand">
+      <span class="brand-mark">GIR6091</span>
+      <span class="brand-sep">·</span>
+      <span class="brand-name">TASKS</span>
+    </span>
+
+    <!-- Menú personalizado según el rol del usuario -->
+    <nav class="nav-links">
+      <a
+        mat-button
+        routerLink="/tasks"
+        routerLinkActive="is-active"
+        class="nav-link"
+      >
+        <mat-icon>checklist</mat-icon>
+        Tareas
+      </a>
+
+      @if (authService.isAdmin()) {
+        <a
+          mat-button
+          routerLink="/users"
+          routerLinkActive="is-active"
+          class="nav-link"
+        >
+          <mat-icon>group</mat-icon>
+          Usuarios
+        </a>
+      }
+    </nav>
+
+    <span class="spacer"></span>
+
+    <span class="role-pill" [class.is-admin]="authService.isAdmin()">
+      <mat-icon>{{ authService.isAdmin() ? 'admin_panel_settings' : 'person' }}</mat-icon>
+      {{ authService.isAdmin() ? 'Administrador' : 'Usuario' }}
+    </span>
+
+    <button mat-button class="user-trigger" [matMenuTriggerFor]="userMenu">
+      {{ authService.user()?.name }}
+      <mat-icon>expand_more</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item disabled>{{ authService.user()?.email }}</button>
+      <button mat-menu-item (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+        Cerrar sesión
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+}

@@ -1,0 +1,86 @@
+.app-toolbar {
+  height: 60px;
+  padding: 0 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: var(--font-display);
+}
+
+.brand-mark {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.brand-sep {
+  color: var(--blue-strong);
+}
+
+.brand-name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 28px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted) !important;
+  font-family: var(--font-body);
+  font-size: 14px;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.nav-link.is-active {
+  color: var(--text) !important;
+  background-color: var(--bg-elevated) !important;
+}
+
+.role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  margin-right: 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.role-pill.is-admin {
+  border-color: var(--blue);
+  color: #a9c6ec;
+}
+
+.user-trigger {
+  color: var(--text) !important;
+  font-family: var(--font-body);
+}
